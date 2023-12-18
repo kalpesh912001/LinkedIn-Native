@@ -7,7 +7,7 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "https://www.freepnglogos.com/uploads/linkedin-logo-transparent-png-25.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,6 +17,7 @@
     "ios": {
       "supportsTablet": true
     },
+    "scheme": "LinkedIn-Native",
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
@@ -25,6 +26,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
