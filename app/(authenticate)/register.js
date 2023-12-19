@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, Pressable, KeyboardAvoidingView } from 'react-native'
+import { StyleSheet, Text, View, SafeAreaView, KeyboardAvoidingView, Image, TextInput, Pressable } from 'react-native'
 import React, { useState } from 'react';
-import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { MaterialIcons, Ionicons, FontAwesome5, Entypo } from '@expo/vector-icons';
 
-
-const login = () => {
+const register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
+    const [image, setImage] = useState('');
 
     const router = useRouter();
 
@@ -19,11 +20,20 @@ const login = () => {
                     style={{ width: 150, height: 100, resizeMode: 'contain' }} />
             </View>
             <View>
-                <Text style={{ fontSize: 20, fontWeight: 600, textAlign: 'center', marginTop: 30, color: "#041E42", }}>Log in to your account</Text>
+                <Text style={{ fontSize: 20, fontWeight: 600, textAlign: 'center', marginTop: 30, color: "#041E42", }}>Resister to your account</Text>
             </View>
             <KeyboardAvoidingView>
-                <View style={{ marginTop: 80, width: 320 }}>
-                    <View style={{ gap: 45 }}>
+                <View style={{ marginTop: 50, width: 320 }}>
+                    <View style={{ gap: 30 }}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#f2f1ed', paddingHorizontal: 16, paddingVertical: 12, borderRadius: 4 }}>
+                            <FontAwesome5 name="user-alt" size={24} color="black" />
+                            <TextInput
+                                value={name}
+                                onChangeText={(text) => setName(text)}
+                                placeholder={'Enter your name'}
+                                style={{ paddingHorizontal: 14, flex: 1, fontSize: 17 }}
+                            />
+                        </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#f2f1ed', paddingHorizontal: 16, paddingVertical: 12, borderRadius: 4 }}>
                             <MaterialIcons name="email" size={30} color="black" />
                             <TextInput
@@ -43,6 +53,15 @@ const login = () => {
                                 style={{ paddingHorizontal: 14, flex: 1, fontSize: 17 }}
                             />
                         </View>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 10, backgroundColor: '#f2f1ed', paddingHorizontal: 16, paddingVertical: 12, borderRadius: 4 }}>
+                            <Entypo name="image-inverted" size={24} color="black" />
+                            <TextInput
+                                value={image}
+                                onChangeText={(text) => setImage(text)}
+                                placeholder={'Enter your image url'}
+                                style={{ paddingHorizontal: 14, flex: 1, fontSize: 17 }}
+                            />
+                        </View>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 15 }}>
                         <Text>Keep me logged in</Text>
@@ -50,10 +69,10 @@ const login = () => {
                     </View>
                     <Pressable
                         style={{ backgroundColor: '#007FFF', width: '100%', marginTop: 40, padding: 14, borderRadius: 4 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 600, color: 'white', textAlign: 'center' }}>Login</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 600, color: 'white', textAlign: 'center' }}>Register</Text>
                     </Pressable>
-                    <Pressable onPress={() => router.push('/register')} style={{ marginTop: 15 }}>
-                        <Text style={{ fontSize: 16, color: 'gray', textAlign: 'center' }}>Don't have any account, resister?</Text>
+                    <Pressable onPress={() => router.push('/login')} style={{ marginTop: 15 }}>
+                        <Text style={{ fontSize: 16, color: 'gray', textAlign: 'center' }}>Already have an account?, login</Text>
                     </Pressable>
                 </View>
             </KeyboardAvoidingView>
@@ -61,6 +80,6 @@ const login = () => {
     )
 }
 
-export default login
+export default register
 
 const styles = StyleSheet.create({})
